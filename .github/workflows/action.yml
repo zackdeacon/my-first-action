@@ -7,9 +7,9 @@ jobs:
     name: First Really Cool Job 
     runs-on: ubuntu-latest 
     steps: 
-      -name: Step One 
+      - name: Step One 
         uses: actions/checkout@v2
-      -name: Step Two
+      - name: Step Two
         run: env | sort
           
   job-2:
