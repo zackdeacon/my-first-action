@@ -10,7 +10,7 @@ jobs:
       - name: Step One 
         uses: actions/checkout@v2
       - name: Step Two
-        run: env | sort
+        run: date
           
   job-2:
     name: Second Really Cool Job 
@@ -20,4 +20,25 @@ jobs:
       - name: Step One
         uses: actions/checkout@v2
       - name: Step Two
-        run: "Get-ChildItem Env: | Sort-Object Name"
+        run: Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+
+  job-3:
+    name: Third Really Cool Job 
+    needs: [job-1, job-2]
+    runs-on: macos-latest
+    steps: 
+      - name: Step One
+        uses: actions/checkout@v2
+      - name: Step Two
+        run: date "+%Y-%m-%d %H:%M:%S"
+
+  job-4:
+    name: Fourth Really Cool Job 
+    needs: [job-1, job-2, job-3]
+    runs-on: macos-latest
+    steps: 
+      - name: Step One
+        uses: actions/checkout@v2
+      - name: Step Two
+        run: echo We done baby!
+        
