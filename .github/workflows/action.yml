@@ -40,5 +40,7 @@ jobs:
       - name: Step One
         uses: actions/checkout@v2
       - name: Step Two
-        run: echo We done baby!
+        run: | 
+          echo We done baby!
+          echo this is a second echo line!
         
